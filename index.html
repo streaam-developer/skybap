@@ -41,14 +41,15 @@ function shuffle(array) {
 }
 
 let params = new URLSearchParams(window.location.search);
-let order = params.get('order');
+let orderParam = params.get('order');
 let index = parseInt(params.get('index')) || 0;
 
-if (!order) {
+let order;
+if (!orderParam) {
   order = shuffle([...domains]);
   index = 0;
 } else {
-  order = order.split(',');
+  order = atob(orderParam).split(',');
 }
 
 const adScript = document.getElementById('AdsCoreLoader97547');
@@ -57,7 +58,8 @@ function handleRedirect() {
   setTimeout(() => {
     if (index < order.length - 1) {
       index++;
-      const nextUrl = order[index] + '?order=' + order.join(',') + '&index=' + index;
+      const orderStr = btoa(order.join(','));
+      const nextUrl = order[index] + '?order=' + orderStr + '&index=' + index;
       window.location.href = nextUrl;
     } else {
       window.location.href = 'https://testss-3c9.pages.dev/';
