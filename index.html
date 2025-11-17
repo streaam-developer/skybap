@@ -65,12 +65,12 @@ function handleRedirect() {
 }
 
 if (adScript) {
-  adScript.addEventListener('load', () => {
-    setTimeout(handleRedirect, 5000);
-  });
-  adScript.addEventListener('error', () => {
-    setTimeout(handleRedirect, 5000);
-  });
+  const checkInterval = setInterval(() => {
+    if (adScript.readyState === 'loaded' || adScript.readyState === 'complete') {
+      clearInterval(checkInterval);
+      setTimeout(handleRedirect, 5000);
+    }
+  }, 200);
 } else {
   setTimeout(handleRedirect, 5000);
 }
