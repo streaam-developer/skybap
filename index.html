@@ -48,6 +48,7 @@ if (!orderParam) {
 } else {
   order = atob(orderParam).split(',');
 }
+order = order.filter(domain => domain !== currentDomain);
 
 const adScript = document.getElementById('AdsCoreLoader97547');
 let redirectTriggered = false;
