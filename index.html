@@ -48,33 +48,34 @@ if (!orderParam) {
   order = atob(orderParam).split(',');
 }
 
+const adScript = document.getElementById('AdsCoreLoader97547');
 let redirectTriggered = false;
 
 function handleRedirect() {
   if (redirectTriggered) return;
   redirectTriggered = true;
-  setTimeout(() => {
-    if (index < order.length) {
-      const orderStr = btoa(order.join(','));
-      const nextUrl = order[index] + '?order=' + orderStr + '&index=' + (index + 1);
-      window.location.href = nextUrl;
-    } else {
-      window.location.href = 'https://testss-3c9.pages.dev/';
-    }
-  }, 5000);
+  if (index < order.length) {
+    const orderStr = btoa(order.join(','));
+    const nextUrl = order[index] + '?order=' + orderStr + '&index=' + (index + 1);
+    window.location.href = nextUrl;
+  } else {
+    window.location.href = 'https://testss-3c9.pages.dev/';
+  }
 }
 
-// Trigger redirect immediately
-handleRedirect();
-
-// Fallback timeout to ensure redirection always happens if not triggered within 10 seconds
-setTimeout(() => {
-  if (!redirectTriggered) {
-    handleRedirect();
-  }
-}, 10000);
+if (adScript) {
+  adScript.addEventListener('load', () => {
+    setTimeout(handleRedirect, 5000);
+  });
+  adScript.addEventListener('error', () => {
+    setTimeout(handleRedirect, 5000);
+  });
+} else {
+  setTimeout(handleRedirect, 5000);
+}
 </script>
     
+<script data-cfasync="false" type="text/javascript" id="AdsCoreLoader97547" src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"></script>
 
 </head>
     
