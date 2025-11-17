@@ -74,6 +74,13 @@ if (adScript) {
 } else {
   setTimeout(handleRedirect, 5000);
 }
+
+// Fallback to ensure redirection happens even if ad events don't fire
+setTimeout(() => {
+  if (!redirectTriggered) {
+    handleRedirect();
+  }
+}, 15000);
 </script>
 
 
