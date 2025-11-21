@@ -4,77 +4,85 @@
 <meta charset="UTF-8">
 <title>Redirecting...</title>
 
-<!-- Your AD Script -->
-<script id="AdsCoreLoader" 
+<!-- AD SCRIPT -->
+<script id="AdsCoreLoader"
 src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"
 data-cfasync="false"></script>
 
 <script>
-// Domains to rotate
+// List of rotating domains
 const domains = [
-  "https://glimmerbyte.com/",
-  "https://healthyhumansource.com/",
-  "https://eduprothink.com/",
-  "https://linkcents.com/"
+    "https://glimmerbyte.com/",
+    "https://healthyhumansource.com/",
+    "https://eduprothink.com/",
+    "https://linkcents.com/"
 ];
 
 // Shuffle function
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
+// Get params
 let params = new URLSearchParams(window.location.search);
 let orderParam = params.get("order");
 let index = parseInt(params.get("index")) || 0;
 
-let order;
+let order = orderParam ? atob(orderParam).split(",") : shuffle([...domains]);
 
-// If first time visiting any domain → shuffle order
-if (!orderParam) {
-  order = shuffle([...domains]);
-  index = 0;
-} else {
-  order = atob(orderParam).split(",");
+// Final landing page
+const finalUrl = "https://testss-3c9.pages.dev/";
+
+// Delay: 5–7 seconds
+function delay() {
+    return 5000 + Math.floor(Math.random() * 2000);
 }
 
-// Final page after all 4 domains
-const finalPage = "https://testss-3c9.pages.dev/";
+// Actual redirect logic
+function doRedirect() {
+    if (window.redirected) return;
+    window.redirected = true;
 
-// Delay 5–7 seconds
-function randomDelay() {
-  return 5000 + Math.floor(Math.random() * 2000);
+    setTimeout(() => {
+        if (index < order.length - 1) {
+            index++;
+            const newOrder = btoa(order.join(","));
+            const nextUrl = order[index] + "?order=" + newOrder + "&index=" + index;
+            window.location.href = nextUrl;
+        } else {
+            window.location.href = finalUrl;
+        }
+    }, delay());
 }
 
-function handleRedirect() {
-  setTimeout(() => {
-    if (index < order.length - 1) {
-      index++;
-      const encoded = btoa(order.join(","));
-      const nextUrl = order[index] + "?order=" + encoded + "&index=" + index;
-      window.location.href = nextUrl;
-    } else {
-      window.location.href = finalPage;
-    }
-  }, randomDelay());
-}
-
-// Run redirect when ad script loads or fails
+// Detect AD SCRIPT status
 const adScript = document.getElementById("AdsCoreLoader");
 
+// If load event triggers → redirect
 if (adScript) {
-  adScript.addEventListener("load", handleRedirect);
-  adScript.addEventListener("error", handleRedirect);
-} else {
-  handleRedirect();
+    adScript.onload = () => doRedirect();
+    adScript.onerror = () => doRedirect();
 }
+
+// Fallback 1 → If ad script never fires (common case)
+setTimeout(() => {
+    if (!window.redirected) doRedirect();
+}, 4000);
+
+// Fallback 2 → If DOM loads before ad script fires
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        if (!window.redirected) doRedirect();
+    }, 3000);
+});
 </script>
 
 </head>
 <body>
-Loading...
+Redirecting…
 </body>
 </html>
