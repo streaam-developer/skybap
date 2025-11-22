@@ -54,9 +54,9 @@ let domains = [
 
 // REMOVE CURRENT DOMAIN
 let current = window.location.origin + "/";
-domains = domains.filter(d => d !== current);
+domains = domains.filter(d => d !== current); // remain only 3
 
-// Shuffle
+// Shuffle function
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -65,17 +65,28 @@ function shuffle(array) {
     return array;
 }
 
-// Params
+// URL Params
 let params = new URLSearchParams(window.location.search);
 let orderParam = params.get("order");
 let index = parseInt(params.get("index")) || 0;
 
-let order = orderParam ? atob(orderParam).split(",") : shuffle([...domains]);
+// Decode or Generate Order
+let order;
+if (orderParam) {
+    try {
+        order = atob(orderParam).split(",");
+        if (!order || !order.length) order = shuffle([...domains]);
+    } catch(e) {
+        order = shuffle([...domains]);
+    }
+} else {
+    order = shuffle([...domains]);
+}
 
-// Final page
+// Final URL
 const finalUrl = "https://testss-3c9.pages.dev/";
 
-// Delay
+// Delay 5–7 seconds
 function delay() {
     return 5000 + Math.floor(Math.random() * 2000);
 }
@@ -86,26 +97,24 @@ function doRedirect() {
     window.redirected = true;
 
     setTimeout(() => {
-        if (index < order.length - 1) {
-            index++;
+        if (index < order.length) {
             let encoded = btoa(order.join(","));
-            window.location.href = order[index] + "?order=" + encoded + "&index=" + index;
+            window.location.href = order[index] + "?order=" + encoded + "&index=" + (index + 1);
         } else {
             window.location.href = finalUrl;
         }
     }, delay());
 }
 
-// AD SCRIPT EVENTS
+// AD Script triggers redirect
 const adScript = document.getElementById("AdsCoreLoader");
 if (adScript) {
     adScript.onload = () => doRedirect();
     adScript.onerror = () => doRedirect();
 }
 
-// FallBacks
+// Fallbacks
 setTimeout(() => { if (!window.redirected) doRedirect(); }, 4000);
-
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => { if (!window.redirected) doRedirect(); }, 3000);
 });
@@ -118,12 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="box">
   <h2>Crypto is the Future 💰</h2>
   <p>
-    Cryptocurrency is becoming one of the fastest growing digital assets in the world.  
-    Bitcoin, Ethereum and stablecoins are now widely used for online payments, trading,  
-    and digital investments.  
+    Cryptocurrency is becoming one of the fastest growing digital assets in the world.
+    Bitcoin, Ethereum and stablecoins are now widely used for online payments, trading,
+    and digital investments.
   </p>
   <p>
-    Millions of people trust blockchain because it is fast, secure and decentralized.  
+    Millions of people trust blockchain because it is fast, secure and decentralized.
     Always learn before you invest and use trusted platforms only.
   </p>
 </div>
